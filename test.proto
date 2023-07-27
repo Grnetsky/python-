@@ -1,0 +1,45 @@
+//指定版本
+syntax = "proto3";
+
+//使用service定义一组远端服务
+service UserRecommend {
+    //使用rpc定义函数名 ()里是传入参数（只能打包为一个对象中） returns()括号里定义返回参数（只能打包为一个对象中）{}
+    rpc UserRecommend(UserRequest) returns (UserResponse) {}
+}
+
+//定义UserRequest数据
+message UserRequest {
+    //每个参数格式为    数据类型 数据名 = 序号;   （序号的存在意义是 在网络中为了效率不会出现数据名，而是用序号代替）
+    int64 user_id = 1;
+    int32 channel_id = 2;
+    int32 article_num = 3;
+    int64 time_stamp = 4;
+
+}
+
+
+// 定义UserResponse数据
+message UserResponse {
+    string exposer = 1;
+    int64 time_stamp = 2;
+
+    message Article {
+        message Track {
+            string click = 1;
+            string collect = 2;
+            string share = 3;
+            string read = 4;
+        }
+
+        int64 article_id = 1;
+        Track track = 2;
+    }
+    //repeated表示定义的数据是数组出现的，表示多个  格式为     repeated 数据类型 数据名 = 序号;
+    repeated Article recommends = 3;
+}
+
+
+
+
+
+

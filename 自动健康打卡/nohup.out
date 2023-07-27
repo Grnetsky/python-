@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "sign in.py", line 14, in <module>
+    import sendEmail
+  File "/Users/mac/Desktop/python训练/自动健康打卡/sendEmail.py", line 10
+    def send_email(title,info):
+    ^
+IndentationError: unexpected indent
+Traceback (most recent call last):
+  File "sign in.py", line 14, in <module>
+    import sendEmail
+  File "/Users/mac/Desktop/python训练/自动健康打卡/sendEmail.py", line 10
+    def send_email(title,info):
+    ^
+IndentationError: unexpected indent
